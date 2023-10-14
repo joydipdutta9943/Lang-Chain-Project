@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="file", id="inputFile">
+  <button type="button" id="btn">Upload</button>
+
+  <script>
+    const inputFile = document.getElementById('inputFile');
+    const btn = document.getElementById('btn');
+
+    btn.addEventListener('click', () => {
+      const file = inputFile.files[0];
+      const formData = new FormData();
+      formData.append('file', file);
+
+      fetch('http://localhost:3000/upload', {
+        method: 'POST',
+        body: formData
+      })
+      .then(res => res.json())
+      .then(res => console.log(res))
+      .catch(err => console.log(err));
+    });
+  </script>
+</body>
+</html>
