@@ -3,6 +3,7 @@ import parsePdf from "../util/pdf_parser";
 import { VectorEmbedding } from "../model/embedded";
 import { MongoClient } from "mongodb";
 import { OpenAI } from "langchain/llms/openai";
+import { StatusCodes } from "http-status-codes";
 
 interface IEmbedding {
   object: string;
@@ -39,9 +40,10 @@ export const uploadEmbedding = async (req: Request, res: Response) => {
 
     await document.save();
 
-    res.send("File uploaded!");
+    res.status(StatusCodes.CREATED).json(document);
   } catch (error) {
     console.error(error);
+    res.status(StatusCodes.INTERNAL_SERVER_ERROR).json(error);
   }
 };
 
@@ -103,9 +105,14 @@ export const queryEmbedding = async (req: Request, res: Response) => {
     });
     const llmResult = await model.predict(prompt);
 
-    res.send(llmResult);
+    const result = {
+      question: query,
+      answer: llmResult,
+    }
+    res.status(StatusCodes.CREATED).json(result);
   } catch (err) {
     console.error(err)
+    res.status(StatusCodes.INTERNAL_SERVER_ERROR).json(err);
   }
 }
 
