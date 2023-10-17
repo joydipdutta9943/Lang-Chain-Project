@@ -3,6 +3,7 @@ import fileUpload from "express-fileupload";
 import Dotenv from "dotenv";
 import connectDB from "./db/connect";
 import embeddedRouter from "./router/embedding";
+import cors from "cors";
 Dotenv.config();
 
 const app = express();
@@ -10,6 +11,8 @@ const app = express();
 app.use(fileUpload());
 
 app.use(express.json());
+
+app.use(cors())
 
 app.get("/", express.static("public"));
 
