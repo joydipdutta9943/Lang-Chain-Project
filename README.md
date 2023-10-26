@@ -16,6 +16,7 @@
 
 - **Frontend**:
   - React JS
+  - Next JS
 
 - **Language**:
   - Typescript
