@@ -52,12 +52,6 @@ To run this project, follow these steps:
 
 - LangChain is employed to retrieve the best possible question-answer pairs.
 
-## Challenges Faced
-
-**Generative AI Learning**
-
-- Learning the concept of vector embedding and understanding LangChain's use cases was initially challenging but highly interesting.
-
 
 
 This README provides a clear structure for your project overview, including the technologies used, instructions for running the project, an overview of the project's design, and insights into the challenges you encountered during development.
