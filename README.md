@@ -16,6 +16,7 @@
 
 - **Frontend**:
   - React JS
+  - Next JS
 
 - **Language**:
   - Typescript
@@ -50,12 +51,6 @@ To run this project, follow these steps:
 **Question Answering**
 
 - LangChain is employed to retrieve the best possible question-answer pairs.
-
-## Challenges Faced
-
-**Generative AI Learning**
-
-- Learning the concept of vector embedding and understanding LangChain's use cases was initially challenging but highly interesting.
 
 
 
